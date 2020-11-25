@@ -2,8 +2,8 @@
 /**
  * Write a description of class Estudiante here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Judith Vargas 
+ * @version 1
  */
 public class Estudiante
 {    
@@ -25,7 +25,7 @@ public class Estudiante
      * Constructor for objects of class Estudiante
      */
 
-    public String getNombret()
+    public String getNombre()
     {
         return nombre;
     }
@@ -43,6 +43,15 @@ public class Estudiante
     public void setCarnet(int carnet)
     {
         this.carnet = carnet;
+    }
+    public float getPromedio()
+    {
+        return promedio;
+    }
+
+    public void setPromedio(float promedio)
+    {
+        this.promedio = promedio;
     }
 
     public ListaNotas getListaNotas()

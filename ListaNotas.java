@@ -2,12 +2,12 @@
 /**
  * Write a description of class Lista here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Judith Vargas 
+ * @version 1
  */
 public class ListaNotas
 {
-     private Nodo inicio;
+    private Nodo inicio;
     private int tamanio;
 
     public void ListaNotas()
@@ -26,7 +26,11 @@ public class ListaNotas
         return tamanio;
     }
     
-    public void agregarAlFinal(int valor)
+    public Nodo getInicio(){
+        return inicio;
+    }
+    
+    public void agregarNota(int valor)
     {
         Nodo nuevoNodo = new Nodo();
         nuevoNodo.setNota(valor);

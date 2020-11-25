@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=Grupo
+comment1.params=
+comment1.target=void\ ingresarEstudiantes()
+comment2.params=
+comment2.target=void\ Programa()
+comment3.params=promedio
+comment3.target=void\ imprimirMenores(float)
+comment3.text=\r\n\ Metodo\ que\ imprime\ los\ datos\ de\ los\ Estudiantes\r\n\ que\ tienen\ un\ promedio\ menor\ al\ indicado.\r\n\ \r\n\ @param\ \ promedio\r\n\ @return\ \ \ \ \r\n
+comment4.params=promedio
+comment4.target=void\ imprimirIguales(float)
+comment4.text=\r\n\ Metodo\ que\ imprime\ los\ datos\ de\ los\ Estudiantes\r\n\ que\ tienen\ un\ promedio\ igual\ al\ indicado.\r\n\ \r\n\ @param\ \ promedio\r\n\ @return\ \ \ \ \r\n
+comment5.params=promedio
+comment5.target=void\ imprimirMayores(float)
+comment5.text=\r\n\ Metodo\ que\ imprime\ los\ datos\ de\ los\ Estudiantes\r\n\ que\ tienen\ un\ promedio\ mayor\ al\ indicado.\r\n\ \r\n\ @param\ \ promedio\r\n\ @return\ \ \ \ \r\n
+numComments=6

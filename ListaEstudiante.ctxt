@@ -1,16 +1,16 @@
 #BlueJ class context
 comment0.target=ListaEstudiante
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ ListaEstudiante\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ ListaEstudiante\ here.\r\n\ \r\n\ @author\ Judith\ Vargas\ \ \r\n\ @version\ 1\r\n
 comment1.params=
 comment1.target=void\ Lista()
 comment2.params=
 comment2.target=boolean\ esVacia()
 comment3.params=
 comment3.target=int\ getTamanio()
-comment4.params=valor
-comment4.target=void\ agregarAlFinal(int)
+comment4.params=nombre\ carnet\ promedio
+comment4.target=void\ agregarEstudiante(java.lang.String,\ int,\ float)
 comment5.params=
-comment5.target=void\ tooString()
-comment6.params=
-comment6.target=float\ calcularPromedio()
+comment5.target=java.lang.String\ toString()
+comment6.params=auxiliar
+comment6.target=float\ calcularPromedio(Nodo)
 numComments=7

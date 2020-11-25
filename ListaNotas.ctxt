@@ -1,14 +1,16 @@
 #BlueJ class context
 comment0.target=ListaNotas
-comment0.text=\r\n\ Write\ a\ description\ of\ class\ Lista\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Lista\ here.\r\n\ \r\n\ @author\ Judith\ Vargas\ \r\n\ @version\ 1\r\n
 comment1.params=
 comment1.target=void\ ListaNotas()
 comment2.params=
 comment2.target=boolean\ esVacia()
 comment3.params=
 comment3.target=int\ getTamanio()
-comment4.params=valor
-comment4.target=void\ agregarAlFinal(int)
-comment5.params=
-comment5.target=void\ imprimirLista()
-numComments=6
+comment4.params=
+comment4.target=Nodo\ getInicio()
+comment5.params=valor
+comment5.target=void\ agregarNota(int)
+comment6.params=
+comment6.target=void\ imprimirLista()
+numComments=7

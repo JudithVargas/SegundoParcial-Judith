@@ -2,14 +2,17 @@
 /**
  * Write a description of class ListaEstudiante here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Judith Vargas  
+ * @version 1
  */
 public class ListaEstudiante
 {
     private Estudiante inicio;
     private int tamanio;
     private float promedio;
+    int totalNotas =0;
+    int sumaNotas =0;
+
     public void Lista()
     {
         inicio = null;
@@ -26,11 +29,13 @@ public class ListaEstudiante
         return tamanio;
     }
 
-    public void agregarAlFinal(int valor)
+    public void agregarEstudiante(String nombre, int carnet,float promedio )
     {
         Estudiante nuevoEstudiante = new Estudiante();
-        //nuevoEstudiante.setValor(valor);
-
+        nuevoEstudiante.setNombre(nombre);
+        nuevoEstudiante.setCarnet(carnet);
+        nuevoEstudiante.setPromedio(promedio);
+        
         if(esVacia())
         {
             inicio = nuevoEstudiante;
@@ -46,16 +51,43 @@ public class ListaEstudiante
 
             auxiliar.setSiguiente(nuevoEstudiante);
         }
-
         tamanio++;
     }
 
-    public void tooString(){
-
+    public String toString(){
+        String datosEstudiante = "";
+        if(!esVacia())
+        {
+            Estudiante auxiliar = inicio;
+            int posicion = 0;
+            while(auxiliar.getSiguiente() != null)
+            {
+                datosEstudiante = "Carnet: " + auxiliar.getCarnet() 
+                + " Nombre: " + auxiliar.getNombre()
+                + " Promedio: " + auxiliar.getPromedio()
+                + "\n";
+                auxiliar = auxiliar.getSiguiente();
+                posicion++;
+            }            
+            datosEstudiante = "Carnet: " + auxiliar.getCarnet() 
+            + " Nombre: " + auxiliar.getNombre()
+            + " Promedio: " + auxiliar.getPromedio()
+            + "\n";                 
+        }
+        return datosEstudiante;
     }
 
-    public float calcularPromedio(){
-
-        return promedio;
+    public float calcularPromedio(Nodo auxiliar){
+        if(!esVacia()){
+            return 0;           
+        }else if(auxiliar == null){
+            return promedio;
+        }else{
+            totalNotas = totalNotas+1;
+            sumaNotas += auxiliar.getNota();
+            promedio = sumaNotas / totalNotas;
+            auxiliar = auxiliar.getSiguiente();
+            return calcularPromedio(auxiliar); 
+        }
     }
 }

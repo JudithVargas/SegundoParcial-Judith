@@ -2,8 +2,8 @@
 /**
  * Write a description of class Nodo here.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Judith Vargas 
+ * @version 1
  */
 public class Nodo
 {
