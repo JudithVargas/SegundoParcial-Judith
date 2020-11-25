@@ -10,7 +10,7 @@ public class Grupo
 {
     ListaEstudiante listaEstudiante = new ListaEstudiante();
     ArbolEstudiante arbolEstudiante = new ArbolEstudiante();
-    ListaNotas listaNotas  = new ListaNotas();
+    
     Nodo nodoInicio = new Nodo();
 
     String nombre = "";
@@ -20,7 +20,8 @@ public class Grupo
 
     public void ingresarEstudiantes(){
         String entrada = "";
-        while (! "b".equals (entrada)){
+        while (! "c".equals (entrada)){
+            
             entrada= JOptionPane.showInputDialog ( "Menu\n\n"
                 +"Escoja una opcion:\n"               
                 + "a. Agregar nuevo estudiante.\n"
@@ -30,35 +31,42 @@ public class Grupo
             //Dependiendo del caso
             switch (entrada.toLowerCase()){
                 case "a":
+                ListaNotas listaNotas  = new ListaNotas();
+                //Pregunta el nombre
                 nombre = JOptionPane.showInputDialog("Ingrese el nombre");
+                //Pregunta el carnet
                 carnet = Integer. parseInt(JOptionPane.showInputDialog("Ingrese el carnet"));
                 String entrada2 = "";
+                //Pregunta las notas hasta que el usuario ya no desee agregar más, y las agrega a la lista
                 while (! "b".equals (entrada2)){
+
                     entrada2= JOptionPane.showInputDialog ( "Desea agregar una nota\n"
                         +"a.Sí.\n"
                         +"b.No.\n"
                     );
                     switch (entrada2.toLowerCase()){
                         case "a": 
-                        nota = Integer. parseInt(JOptionPane.showInputDialog("Ingrese la nota"));
+                        nota = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la nota"));
                         listaNotas.agregarNota(nota);
                         break;
-
                     }                    
                 }
-                nodoInicio = listaNotas.getInicio();
-                listaEstudiante.calcularPromedio(nodoInicio);
+                nodoInicio = listaNotas.getInicio();  
+                //Calcular el promedio
+                promedio = listaEstudiante.calcularPromedio(nodoInicio);
+                //Agregar estudiante a la lista
+                listaEstudiante.agregarEstudiante(nombre,carnet,listaNotas,promedio);
+                
                 break;
 
                 case "b":
-                JOptionPane.showMessageDialog(null,"Muchas gracias por usar el programa");
+                mostrarMenu();                
                 break;             
             }
         }      
-
     }
 
-    public void Programa() {  
+    public void mostrarMenu() {  
         float promedioIngresado = Float.parseFloat(JOptionPane.showInputDialog ("Digite el promedio"));
         String entrada= ""; 
         while (! "e".equals (entrada)){
@@ -127,5 +135,6 @@ public class Grupo
      * @return    
      */
     public void imprimirMayores(float promedio){
+
     }
 }
