@@ -7,27 +7,54 @@
  */
 public class ArbolEstudiante
 {
-    // instance variables - replace the example below with your own
-    private int x;
+   NodoArbol raiz;
 
-    /**
-     * Constructor for objects of class Arbol
-     */
     public ArbolEstudiante()
     {
-        // initialise instance variables
-        x = 0;
+        raiz = null;
     }
-
-    /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
+    
+    public NodoArbol getRaiz()
     {
-        // put your code here
-        return x + y;
+        return raiz;
     }
+    
+    private NodoArbol agregarRecursivo(NodoArbol actual, Estudiante estudiante)
+    {
+        if(actual == null)
+        {
+            return new NodoArbol(estudiante);
+        }
+        else if( estudiante.getPromedio() < actual.estudiante.getPromedio() )
+        {
+            actual.setHijoIzquierdo(agregarRecursivo(actual.getHijoIzquierdo(), estudiante));
+        }
+        else if( estudiante.getPromedio() > actual.estudiante.getPromedio() )
+        {
+            actual.setHijoDerecho(agregarRecursivo(actual.getHijoDerecho(), estudiante));
+        }
+        else
+        {
+            return actual;
+        }
+        
+        return actual;
+    }
+    
+    public void agregarHijo(Estudiante estudiante)
+    {
+        raiz = agregarRecursivo(raiz, estudiante);
+    }
+    
+    public void recorrerEnOrden(NodoArbol nodoActual)
+    {
+        if( nodoActual != null)
+        {
+            recorrerEnOrden(nodoActual.getHijoIzquierdo());
+            System.out.print(" " + nodoActual.estudiante.getPromedio());
+            recorrerEnOrden(nodoActual.getHijoDerecho());
+        }
+    }
+    
+
 }

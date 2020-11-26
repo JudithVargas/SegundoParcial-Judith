@@ -10,8 +10,8 @@ public class ListaEstudiante
     private Estudiante inicio;
     private int tamanio;
     private float promedio;
-    int totalNotas =0;
-    int sumaNotas =0;
+    int totalNotas = 0;
+    int sumaNotas = 0;
 
     public void Lista()
     {
@@ -35,7 +35,7 @@ public class ListaEstudiante
      * @param nombre,carnet,listaNotas,promedio
      * @return    
      */
-    public void agregarEstudiante(String nombre, int carnet,ListaNotas listaNotas,float promedio )
+    public Estudiante agregarEstudiante(String nombre, int carnet,ListaNotas listaNotas,float promedio )
     {
         Estudiante nuevoEstudiante = new Estudiante();       
         nuevoEstudiante.setNombre(nombre);
@@ -67,9 +67,9 @@ public class ListaEstudiante
                 nuevoEstudiante.setSiguiente(auxiliar.getSiguiente());
                 auxiliar.setSiguiente(nuevoEstudiante);
             }
-
         }
         tamanio++;
+        return nuevoEstudiante;
     }
     
     /**
@@ -106,10 +106,10 @@ public class ListaEstudiante
      * @param 
      * @return float  
      */
-    public float calcularPromedio(Nodo auxiliar){
+    public float calcularPromedio(Nodo auxiliar){   
         if(auxiliar == null){
             return promedio;
-        }else{
+        }else  {
             totalNotas++;
             sumaNotas += auxiliar.getNota();            
             promedio = sumaNotas/totalNotas;

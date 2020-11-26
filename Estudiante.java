@@ -44,6 +44,7 @@ public class Estudiante
     {
         this.carnet = carnet;
     }
+    
     public float getPromedio()
     {
         return promedio;
