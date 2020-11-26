@@ -2,7 +2,7 @@
 comment0.target=ListaEstudiante
 comment0.text=\r\n\ Write\ a\ description\ of\ class\ ListaEstudiante\ here.\r\n\ \r\n\ @author\ Judith\ Vargas\ \ \r\n\ @version\ 1\r\n
 comment1.params=
-comment1.target=void\ Lista()
+comment1.target=ListaEstudiante()
 comment2.params=
 comment2.target=boolean\ esVacia()
 comment3.params=

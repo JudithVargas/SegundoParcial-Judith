@@ -11,22 +11,19 @@ public class Grupo
     ListaEstudiante listaEstudiante = new ListaEstudiante();
     ArbolEstudiante arbolEstudiante = new ArbolEstudiante();
     Estudiante estudiante = new Estudiante();
-    ListaNotas listaNotas  = new ListaNotas();
+
     Nodo nodoInicio = new Nodo();
 
     String nombre = "";
     int carnet = 0;   
-    int nota =0;
-    float promedio = 0;
-    String menores = "";
-    String mayores = "";
-    String iguales = "";
-    String imprimir = "";
+    int nota = 0;
+    float promedio =0;
+   String imprimir = "";
 
     public void ingresarEstudiantes(){
         String entrada = "";
         while (! "c".equals (entrada)){
-
+            
             entrada= JOptionPane.showInputDialog ( "Menu\n\n"
                 +"Escoja una opcion:\n"               
                 + "a. Agregar nuevo estudiante.\n"
@@ -36,7 +33,8 @@ public class Grupo
             //Dependiendo del caso
             switch (entrada.toLowerCase()){
                 case "a":
-                listaNotas  = new ListaNotas();
+                ListaNotas listaNotas  = new ListaNotas();
+                int totalNotas = 0;
                 //Pregunta el nombre
                 nombre = JOptionPane.showInputDialog("Ingrese el nombre");
                 //Pregunta el carnet
@@ -56,7 +54,7 @@ public class Grupo
                         break;
                     }                    
                 }
-                 System.out.println("Lista Notass:\n" );
+                System.out.println("Lista Notass:\n" );
                 listaNotas.imprimirLista();
                 nodoInicio = listaNotas.getInicio(); 
                 System.out.println("Nodo inicio: "+nodoInicio.getNota());
@@ -65,6 +63,7 @@ public class Grupo
                 System.out.println("Promedio: "+promedio);
                 //Agregar estudiante a la lista
                 estudiante = listaEstudiante.agregarEstudiante(nombre,carnet,listaNotas,promedio);
+                //Le envia el estudiante creado al arbol para añadirlo
                 crearArbol(estudiante);
                 break;
 
@@ -95,93 +94,33 @@ public class Grupo
             //Dependiendo del caso
             switch (entrada.toLowerCase()){
                 case "a":               
-                imprimir = imprimirMayores(promedioIngresado,arbolEstudiante.getRaiz());
+                imprimir = arbolEstudiante.imprimirMayores(arbolEstudiante.getRaiz(),promedioIngresado);
                 JOptionPane.showMessageDialog(null,"Valores mayores: \n" + imprimir);
                 break;
 
                 case "b":
 
-                imprimir = imprimirMenores(promedioIngresado,arbolEstudiante.getRaiz());
+                imprimir = arbolEstudiante.imprimirMenores(arbolEstudiante.getRaiz(),promedioIngresado);
                 JOptionPane.showMessageDialog(null,"Valores menores: \n" + imprimir);
                 break;
 
                 case "c":
-                imprimir = imprimirIguales(promedioIngresado,arbolEstudiante.getRaiz());
+                imprimir = arbolEstudiante.imprimirIguales(arbolEstudiante.getRaiz(),promedioIngresado);
                 JOptionPane.showMessageDialog(null,"Valores iguales: \n" + imprimir);
                 break;
 
                 case "d":
-                String promedioEstudiantes = listaEstudiante.toString();
-                JOptionPane.showMessageDialog(null,"Promedio de todos los estudiantes: \n" + promedioEstudiantes);
+                System.out.println("Todos los promedios\n");
+                arbolEstudiante.recorrerEnOrden(arbolEstudiante.getRaiz());
                 break;
 
                 case "e":
-                       System.out.println("Valores del arbol\n");
-                arbolEstudiante.recorrerEnOrden(arbolEstudiante.getRaiz());
-                //JOptionPane.showMessageDialog(null,"Muchas gracias por usar el programa");
+                
+                JOptionPane.showMessageDialog(null,"Muchas gracias por usar el programa");
                 break;
             }
         }      
     }
 
-    /**
-     * Metodo que imprime los datos de los Estudiantes
-     * que tienen un promedio menor al indicado.
-     * 
-     * @param  promedio
-     * @return    
-     */
-    public String imprimirMenores(float promedio, NodoArbol nodoActual){
-
-        if( nodoActual != null)
-        {
-            imprimirMenores(promedio,nodoActual.getHijoIzquierdo());
-            float promedioComparar = nodoActual.estudiante.getPromedio();
-            if(promedioComparar < promedio){
-                menores +=" " + promedioComparar;
-            }            
-            imprimirMenores(promedio,nodoActual.getHijoDerecho());
-        }
-        return menores;
-    }
-
-    /**
-     * Metodo que imprime los datos de los Estudiantes
-     * que tienen un promedio igual al indicado.
-     * 
-     * @param  promedio
-     * @return    
-     */
-    public String imprimirIguales(float promedio,NodoArbol nodoActual){
-        if( nodoActual != null)
-        {
-            imprimirMenores(promedio,nodoActual.getHijoIzquierdo());
-            float promedioComparar = nodoActual.estudiante.getPromedio();
-            if(promedioComparar == promedio){
-                menores +=" " + promedioComparar;
-            }            
-            imprimirMenores(promedio,nodoActual.getHijoDerecho());
-        }
-        return iguales;
-    }
-
-    /**
-     * Metodo que imprime los datos de los Estudiantes
-     * que tienen un promedio mayor al indicado.
-     * 
-     * @param  promedio
-     * @return    
-     */
-    public String imprimirMayores(float promedio,NodoArbol nodoActual){
-                if( nodoActual != null)
-        {
-            imprimirMenores(promedio,nodoActual.getHijoIzquierdo());
-            float promedioComparar = nodoActual.estudiante.getPromedio();
-            if(promedioComparar > promedio){
-                menores +=" " + promedioComparar;
-            }            
-            imprimirMenores(promedio,nodoActual.getHijoDerecho());
-        }
-        return iguales;
-    }
+  
 }

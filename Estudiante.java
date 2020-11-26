@@ -13,7 +13,7 @@ public class Estudiante
     private float promedio;
     private Estudiante siguiente;
 
-    public void Estudiante() {
+    public Estudiante() {
         this.nombre = "";        
         this.carnet = 0; 
         this.listaNotas = null;

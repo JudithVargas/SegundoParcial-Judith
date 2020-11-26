@@ -7,16 +7,19 @@
  */
 public class ListaEstudiante
 {
-    private Estudiante inicio;
-    private int tamanio;
-    private float promedio;
-    int totalNotas = 0;
-    int sumaNotas = 0;
+    Estudiante inicio;
+    int tamanio;
+    float promedio;
+    int totalNotas;
+    int sumaNotas;
 
-    public void Lista()
+    public ListaEstudiante()
     {
         inicio = null;
         tamanio = 0;
+        promedio =0;
+        totalNotas = 0;
+        sumaNotas =0;
     }
 
     public boolean esVacia()
@@ -71,7 +74,7 @@ public class ListaEstudiante
         tamanio++;
         return nuevoEstudiante;
     }
-    
+
     /**
      * Metodo que devuelve de manera ordenada los datos del estudiante 
      * 
@@ -99,23 +102,24 @@ public class ListaEstudiante
         }
         return datosEstudiante;
     }
-    
+
     /**
      * Metodo que calcula el promedio retorna el promedio de la lista.
      * 
      * @param 
      * @return float  
      */
-    public float calcularPromedio(Nodo auxiliar){   
+    public float calcularPromedio(Nodo auxiliar){           
         if(auxiliar == null){
             return promedio;
         }else  {
-            totalNotas++;
-            sumaNotas += auxiliar.getNota();            
+            totalNotas=+ 1;
+            sumaNotas =+ auxiliar.getNota();            
             promedio = sumaNotas/totalNotas;
 
             auxiliar = auxiliar.getSiguiente();            
             return calcularPromedio(auxiliar); 
         }
     }
+
 }

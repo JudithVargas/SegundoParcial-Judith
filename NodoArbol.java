@@ -7,7 +7,7 @@
  */
 public class NodoArbol
 {
-     Estudiante estudiante;
+    Estudiante estudiante;
     NodoArbol hijoIzquierdo;
     NodoArbol hijoDerecho;
 
